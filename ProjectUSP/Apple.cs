@@ -20,12 +20,12 @@ namespace ProjectUSP
 
         private void Apple_Load(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,7 +35,6 @@ namespace ProjectUSP
 
         private void Apple_Load_1(object sender, EventArgs e)
         {
-           
         }
     }
 }
