@@ -38,7 +38,14 @@ namespace ProjectUSP
         private void button1_Click(object sender, EventArgs e)
         {
             openChildForm(new AddPhone());
-           
+           /* string connectionString;
+            OleDbConnection cnn;
+            connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\DatabaseUSP\\Database3.mdb";
+            cnn = new OleDbConnection(connectionString);
+            cnn.Open();
+            MessageBox.Show("Connection Open  !");
+            cnn.Close();
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)

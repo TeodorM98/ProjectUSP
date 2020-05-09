@@ -25,6 +25,7 @@ namespace ProjectUSP
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int success = 0;
             OleDbConnection cnn;
 
             cnn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\DatabaseUSP\\Database3.mdb");
@@ -39,9 +40,11 @@ namespace ProjectUSP
             else
             {
                 errorProvider1.SetError(textBox1, "");
+                success++;
                 
             }
-          //zapisva vuv vseki sluchai, kak da napravq validaciq?
+            if (success == 1)
+            {
                 try
                 {
                     string str = " INSERT into Phones([Brand],[Model],[Display],[Processor],[RAM],[Storage],[Battery],[OS],[Resolution],[Release Date]) VALUES('" + comboBox1.Text.ToString() + "','" + textBox1.Text.ToString() + "','" + comboBox6.Text.ToString() + "','" + comboBox7.Text.ToString() + "','" + comboBox5.Text.ToString() + "','" + comboBox3.Text.ToString() + "','" + comboBox8.Text.ToString() + "','" + comboBox4.Text.ToString() + "','" + comboBox2.Text.ToString() + "','" + dateTimePicker1.Text.ToString() + "'); ";
@@ -61,7 +64,7 @@ namespace ProjectUSP
                 {
                     MessageBox.Show(excep.Message);
                 }
-            
+            }
             cnn.Close();
         }
 
