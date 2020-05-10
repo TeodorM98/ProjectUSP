@@ -60,7 +60,25 @@ namespace ProjectUSP
 
         private void Samsung_Load(object sender, EventArgs e)
         {
-            
+            OleDbConnection cnn;
+            cnn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\DatabaseUSP\\Database3.mdb");
+            cnn.Open();
+            string sel = "SELECT * FROM Phones WHERE [Brand] = 'Samsung' ";
+            OleDbCommand com = new OleDbCommand(sel, cnn);
+            OleDbDataReader dr = com.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    listBox1.Items.Add(dr["Brand"].ToString() + " " + dr["Model"].ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+
+            cnn.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
